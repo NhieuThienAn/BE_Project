@@ -3,13 +3,19 @@ const router = express.Router();
 const postController = require('../Controllers/postController');
 const auth = require('../middleware/auth'); 
 
-// Tạo bài viết mới
-router.post('/posts', auth, postController.createPost);
+// create a new post 
+router.post('/posts', postController.createPost); //ok
 
-// Lấy tất cả bài viết
-router.get('/posts', postController.getAllPosts);
+// get all posts
+router.get('/posts', postController.getAllPosts); //ok
 
-// Lấy bài viết theo tên người dùng
-router.get('/posts/user/:name', auth, postController.getPostByUserName);
+// get all posts by username
+router.get('/posts/user/:name'  , postController.getPostByUserName); //ok
+
+// change post
+router.put('/posts/:postId', postController.updatePost);//ok
+
+// delete post
+router.delete('/posts/:postId', postController.deletePost);//ok
 
 module.exports = router;

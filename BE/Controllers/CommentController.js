@@ -1,5 +1,6 @@
 const Comment = require('../Models/Comment.JS'); 
 
+// create a new comment
 exports.createComment = async (req, res) => {
     const { post_id, user_id, content } = req.body;
     try {
@@ -11,6 +12,7 @@ exports.createComment = async (req, res) => {
     }
 };
 
+// get all comments
 exports.getAllComments = async (req, res) => {
     try{
         const comments = await Comment.find({});

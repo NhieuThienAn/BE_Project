@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const categoryController = require('../Controllers/CategoryController');
 
-// Tạo danh mục
+// create new category
 router.post('/categories', categoryController.createCategory);
 
-// Lấy tất cả danh mục
+// get all categories
 router.get('/categories', categoryController.getAllCategories);
 
 module.exports = router;

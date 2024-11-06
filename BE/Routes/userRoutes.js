@@ -2,18 +2,19 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../Controllers/UserController');
 
-// Đăng ký 
-router.post('/register', userController.register);
+// register
+router.post('/register', userController.register); //ok
 
-// Đăng nhập
-router.post('/login', userController.login);
+// login
+router.post('/login', userController.login); //ok
 
-// Lấy tất cả người dùng
-router.get('/users', userController.getAllUsers); 
+// get all users
+router.get('/users', userController.getAllUsers); //ok
 
-// Sửa thông tin người dùng
-router.put('/users/:id', userController.updateUser);
+// change user 
+router.put('/users/:id', userController.updateUser);//ok
 
-// Xóa người dùng
-router.delete('/users/:id', userController.deleteUser);
+// delete user
+router.delete('/users/:id', userController.deleteUser); //ok
+
 module.exports = router;

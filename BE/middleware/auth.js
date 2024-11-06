@@ -6,14 +6,14 @@ const auth = (req, res, next) => {
         return res.status(401).json({ message: 'No token provided.' });
     }
 
-    try {
+    try { 
         const decoded = jwt.verify(token.split(' ')[1], process.env.SECRET_KEY); 
         req.user = decoded;
         next();
     } catch (error) {
         return res.status(401).json({ message: 'Token is not valid.' });
     }
-    console.log('Token:', token); // Ghi lại token để kiểm tra
+    console.log('Token:', token); 
 };
 
 module.exports = auth;

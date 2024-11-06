@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const commentController = require('../Controllers/CommentController');
-//Đăng Bình Luận
+
+// create a new comment
 router.post('/comments', commentController.createComment);
 
-//Lấy Tất Cả Bình Luận
+// get all comments
 router.get('/comments', commentController.getAllComments);
 module.exports = router;

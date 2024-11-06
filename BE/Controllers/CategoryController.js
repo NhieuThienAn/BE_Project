@@ -1,6 +1,6 @@
 const Category = require('../Models/Category');
 
-// Tạo danh mục mới
+// Create a new category
 exports.createCategory = async (req, res) => {
     const { name, description } = req.body;
     try {
@@ -13,7 +13,8 @@ exports.createCategory = async (req, res) => {
     }
 };
 
-// Lấy tất cả danh mục
+
+// Get all category
 exports.getAllCategories = async (req, res) => {
     try {
         const categories = await Category.find();
