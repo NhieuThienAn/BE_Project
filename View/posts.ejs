@@ -1,0 +1,34 @@
+<%- include('partials/header') -%>
+<h1>Danh Sách Bài Viết</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Tiêu Đề</th>
+            <th>Nội Dung</th>
+            <th>Trạng Thái</th>
+            <th>Ngày Tạo</th>
+            <th>Hành Động</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (posts && posts.length > 0) { %>
+            <% posts.forEach(post => { %>
+                <tr>
+                    <td><%= post.title %></td>
+                    <td><%= post.content %></td>
+                    <td><%= post.status %></td>
+                    <td><%= post.created_at.toLocaleDateString() %></td>
+                    <td>
+                        <a href="/posts/edit/<%= post.slug %>">Sửa</a>
+                        <a href="/posts/delete/<%= post.slug %>">Xóa</a>
+                    </td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <tr>
+                <td colspan="5">Không có bài viết nào.</td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+<%- include('partials/footer') -%>

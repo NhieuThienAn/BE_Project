@@ -1,0 +1,30 @@
+<!-- View/users.ejs -->
+<%- include('partials/header') -%>
+
+    <div>
+        <a class="nav" href="/users">User list</a>
+        <a class="nav" href="/posts">Post List</a>
+        <a class="nav" href="/category">Category List </a>
+    </div>
+    <style>
+        .nav {
+            padding: 40px;
+            background-color: white;
+            color: black;
+            border: black 2px solid;
+            margin: 35vh 10vh 10vh 30vh;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 20px;
+            cursor: pointer;
+            display: inline-flex;
+            transition: 0.3s ease;
+        }
+
+        .nav:hover {
+            background-color: black;
+            color: white;
+            border: white 2px solid;
+        }
+    </style>
+    <%- include('partials/footer') -%>

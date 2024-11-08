@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const postSchema = new mongoose.Schema({
     user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, 
@@ -17,4 +17,6 @@ postSchema.pre('save', function (next) {
     next();
 });
 
-module.exports = mongoose.model('Post', postSchema);
+// Use default export
+const Post = mongoose.model('Post', postSchema);
+export default Post; // Export as default
