@@ -17,6 +17,5 @@ postSchema.pre('save', function (next) {
     next();
 });
 
-// Use default export
 const Post = mongoose.model('Post', postSchema);
-export default Post; // Export as default
+export default Post; 

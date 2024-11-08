@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
-dotenv.config(); // Đảm bảo rằng dotenv được nạp ở đầu
+dotenv.config(); 
 
 import jwt from 'jsonwebtoken';
 import { HttpStatusCode } from '../constants/HttpStatusCode.js';
-import { jwt as config } from '../config.js'; // Importing the jwt object
+import { jwt as config } from '../config.js'; 
 
 const authentication = (req, res, next) => {
     try {
@@ -13,14 +13,12 @@ const authentication = (req, res, next) => {
             return res.status(HttpStatusCode.UNAUTHORIZED).json({ message: 'No token provided.' });
         }
 
-        const decoded = jwt.verify(token, config.secretKey); // Sử dụng secretKey từ config
-        console.log('Decoded payload:', JSON.stringify(decoded)); // Log payload đã giải mã
-
-        req.user = decoded; // Gán thông tin người dùng vào req.user
+        const decoded = jwt.verify(token, config.secretKey); 
+        req.user = decoded; 
         next();
 
     } catch (error) {
-        console.error('Token verification error:', error); // Log lỗi
+        console.error('Token verification error:', error); 
         return res.status(HttpStatusCode.UNAUTHORIZED).json({ message: 'Token is not valid.' });
     }
 };

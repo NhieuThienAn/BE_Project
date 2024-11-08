@@ -1,12 +1,12 @@
 import dotenv from 'dotenv';
-dotenv.config(); // Đảm bảo rằng dotenv được nạp ở đây
+dotenv.config(); 
 
 import User from '../Models/User.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { HttpStatusCode } from '../constants/HttpStatusCode.js';
 
-const SECRET_KEY = process.env.SECRET_KEY; // Access the secret key
+const SECRET_KEY = process.env.SECRET_KEY;
 
 // Register
 export const register = async (req, res) => {
@@ -76,7 +76,6 @@ export const updateUser = async (req, res) => {
     const { id } = req.params;
     const { username, email, password, bio, avatar_url } = req.body;
 
-    // Check permissions
     if (req.user.role !== 'admin' && req.user.id !== id) {
         return res.status(HttpStatusCode.FORBIDDEN).json({ message: 'Access denied.' });
     }

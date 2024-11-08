@@ -37,7 +37,7 @@ export const DeleteCategory = async (req, res) => {
             return res.status(HttpStatusCode.NOT_FOUND).json({ message: 'No categories found.' });
         }
         await Category.findByIdAndDelete(id);
-        res.status(HttpStatusCode.OK).send(); // Trả về 204 No Content
+        res.status(HttpStatusCode.OK).send(); 
     }
     catch (error) {
         res.status(HttpStatusCode.SERVER_ERROR).json({ error: error.message });
